@@ -2238,22 +2238,18 @@
                     }
 
                     if (isDescarga) {
-                        const pdfBlob = await response.blob();
-                        const url = window.URL.createObjectURL(pdfBlob);
-                        const a = document.createElement('a');
-                        a.href = url;
-                        a.download = 'brochure.pdf';
-                        document.body.appendChild(a);
-                        a.click();
-                        a.remove();
-                        window.URL.revokeObjectURL(url);
+                        const json = await response.json();
 
+                        if (json.pdfUrl) {
+                            window.open(
+                                `https://massaro-backend-production.up.railway.app${json.pdfUrl}`,
+                                '_blank'
+                            );
+                        } else {
+                            console.error('No se recibió pdfUrl');
+                        }
                         messageDiv.classList.add('alert', 'alert-success');
                         messageDiv.textContent = 'Formulario enviado correctamente. Descargando brochure...';
-
-                        setTimeout(() => {
-                            window.location.href = '/brochure.pdf';
-                        }, 3000);
                     } else {
                         messageDiv.classList.add('alert', 'alert-success');
                         messageDiv.textContent = 'Formulario enviado correctamente.';
