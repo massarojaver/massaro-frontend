@@ -8295,7 +8295,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 /* slide-item-7 */
 .ltn__slide-item-7 {
     min-height: 800px;
-    height: calc(100vh - 0px);
+    height: auto;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
