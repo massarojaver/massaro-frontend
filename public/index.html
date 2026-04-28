@@ -956,6 +956,7 @@
                         <div class="section-title-area ltn__section-title-2--- mb-20">
                             <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color">Modelo</h6>
                             <h1 class="section-title">Alba Roof Garden Plus</h1>
+                            <h2 class="">Desde: $4,024,000*</h2>
                             <p class="fs-5 lh-base text-justify">Disfruta de uno de nuestros modelos preferidos, con
                                 espacios confortables para ti y tu familia. El protagonista de este modelo sin duda es
                                 su patio de gran tamaño donde comenzarás a crear esos momentos inigualables en familia.
@@ -982,6 +983,8 @@
                             </li>
 
                         </ul>
+                        <p class="mt-45">*Se aplican restricciones. Precios
+                            vigentes al <span data-vigencia-fecha=""></span>.</p>
                         <div class="btn-wrapper animated ltn__animation-pulse2">
                             <a data-bs-toggle="modal" data-bs-target="#quick_view_modal"
                                 class="theme-btn-1 btn btn-effect-1">Descargar
@@ -2011,6 +2014,53 @@
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeeHDCOXmUMja1CFg96RbtyKgx381yoBU"></script> -->
     <!-- Main JS -->
     <script src="./js/main.js"></script>
+
+    <script>
+        (function () {
+            // const modelPrices = {
+            //     A: 3050000,
+            //     B: 4181000,
+            //     C: 4836000,
+            //     D: 5726000
+            // };
+
+            // const formatCurrency = new Intl.NumberFormat('es-MX');
+            // const formatPrice = function (amount) {
+            //     return '$' + formatCurrency.format(amount) + "*";
+            // };
+
+            // document.querySelectorAll('[data-model-price]').forEach(function (element) {
+            //     const model = element.getAttribute('data-model-price');
+            //     if (modelPrices[model]) {
+            //         element.textContent = formatPrice(modelPrices[model]);
+            //     }
+            // });
+
+            // document.querySelectorAll('[data-model-label]').forEach(function (element) {
+            //     const model = element.getAttribute('data-model-label');
+            //     if (!modelPrices[model]) {
+            //         return;
+            //     }
+
+            //     const label = 'Modelo ' + model + ' - ' + formatPrice(modelPrices[model]);
+            //     element.textContent = label;
+            //     if (element.tagName === 'OPTION') {
+            //         element.value = label;
+            //     }
+            // });
+
+            const today = new Date();
+            const lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+            const day = lastDayOfMonth.getDate();
+            const month = lastDayOfMonth.toLocaleString('es-MX', { month: 'long' });
+            const year = lastDayOfMonth.getFullYear();
+            const dynamicDate = day + ' de ' + month + ' del ' + year;
+
+            document.querySelectorAll('[data-vigencia-fecha]').forEach(function (element) {
+                element.textContent = dynamicDate;
+            });
+        })();
+    </script>
 
     <script>
         const floatingBtn = document.getElementById('floating-btn');
