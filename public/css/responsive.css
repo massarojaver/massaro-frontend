@@ -2,7 +2,7 @@
     Responsive
 ==================================================== */
 /* Desktop 1200 - up */
-@media (min-width: 1600px) {
+@media (min-width: 1400px) {
 
     .pleca-javer {
         max-width: 200px;
@@ -10,7 +10,7 @@
         display: block !important;
         position: absolute;
         bottom: 520px;
-        right: 20px;
+        top: -540px;
 
     }
 }
