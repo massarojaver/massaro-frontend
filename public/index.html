@@ -2357,10 +2357,11 @@
                         form_origen: formId // ✅ para backend y analytics
                     };
 
+                    const API_BASE_URL = 'https://massaro-backend.onrender.com';
                     const isDescarga = formId === 'lead-form-2';
                     const endpoint = isDescarga
-                        ? 'https://massaro-backend-production.up.railway.app/enviarYDescargar'
-                        : 'https://massaro-backend-production.up.railway.app/enviar';
+                        ? `${API_BASE_URL}/enviarYDescargar`
+                        : `${API_BASE_URL}/enviar`;
 
                     const response = await fetch(endpoint, {
                         method: 'POST',
@@ -2383,10 +2384,7 @@
                         const json = await response.json();
 
                         if (json.pdfUrl) {
-                            window.open(
-                                `https://massaro-backend-production.up.railway.app${json.pdfUrl}`,
-                                '_blank'
-                            );
+                            window.open(`${API_BASE_URL}${json.pdfUrl}`, '_blank');
                         } else {
                             console.error('No se recibió pdfUrl');
                         }
